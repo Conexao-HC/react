@@ -9,11 +9,13 @@ export default function Header() {
     };
 
     return (
-        <header className="bg-[#acf0ff] shadow-md sticky top-0 z-20"> 
+       
+        <header className="bg-[#acf0ff] shadow-md sticky top-0 z-20 w-full"> 
             
-            <div className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
+            
+            <div className="flex items-center justify-between px-4 py-3 w-full mx-auto">
                 
-                <Link to="/">
+                <Link to="/home">
                     <img 
                         className="logohc w-28 h-auto" 
                         src="/Challenge front-end/assets/img/logohc.png" 

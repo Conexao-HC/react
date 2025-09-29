@@ -50,7 +50,7 @@ export default function Footer() {
                 </div>
 
                 <div className="text-sm opacity-80 mt-4 md:mt-0 md:self-start">
-                    <p>Copyright &copy; 2024. Todos os direitos reservados.</p>
+                    <p>Copyright &copy; 2025. Todos os direitos reservados.</p>
                 </div>
                 
             </div>
