@@ -2,12 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Contato from './routes/Contato/index.tsx'
+import './index.css'
 import Error from './routes/Error/index.tsx'
 import Faq from './routes/Faq/index.tsx'
-import Integrantes from './routes/Integrantes/index.tsx'
-import Sobre from './routes/Sobre/index.tsx'
-import Cadastro from './routes/Cadastro/index.tsx'
+import AgendamentoPage from './routes/Agendamento/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -15,18 +13,12 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
-      {path:"/Contato", element: <Contato/>},
     {path:"/Faq", element:<Faq/>},
-    {path:"/Integrantes", element:<Integrantes/>},
-    {path:"/Sobre", element:<Sobre/>},
-    {path:"/Cadastro", element:<Cadastro/>},
+    {path:"/Agendamento", element:<AgendamentoPage/>}
 
     ]
   }
 ])
-
-
-
 
 
 createRoot(document.getElementById('root')!).render(
