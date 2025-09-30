@@ -20,6 +20,7 @@ export default function Cadastro() {
         const loginData = {
             cpf: data.cpf,
             senha: data.senha,
+            nome: data.nome
         };
         
         try {

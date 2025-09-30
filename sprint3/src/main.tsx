@@ -26,7 +26,6 @@ const router = createBrowserRouter([
     {path:"Integrantes", element:<Integrantes/>},
     {path:"/Reagendamento", element:<Reagendamento/>},
     
-
     ]
   }
 ])
