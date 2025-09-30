@@ -1,5 +1,3 @@
-// src/components/AccordionItem.tsx
-
 import { useState } from 'react';
 import type { FaqItem } from '../../data/DataFaq';
 
@@ -12,7 +10,7 @@ export default function FaqAberto({ item }: FaqAbertoProps) {
     
     const [estaAberto, setEstaAberto] = useState(false);
 
-    const toggle = () => {
+    const trocar = () => {
         setEstaAberto(!estaAberto);
     };
 
@@ -21,7 +19,7 @@ export default function FaqAberto({ item }: FaqAbertoProps) {
             
             <button
                 className="flex justify-between items-center w-full p-4 text-left text-xl font-bold text-gray-800 hover:bg-blue-100 transition duration-150"
-                onClick={toggle} 
+                onClick={trocar} 
                 aria-expanded={estaAberto} 
             >
                 <span>{item.pergunta}</span> 
