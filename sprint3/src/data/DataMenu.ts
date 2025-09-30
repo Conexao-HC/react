@@ -5,12 +5,12 @@ export type MenuItem = {
 };
 
 export const menuItems: MenuItem[] = [
-    { label: "Meus dados", route: "/dados" },
+    { label: "Meus dados", route: "/meusdados" },
     { label: "Agendar consulta", route: "/agendamento" },
     { label: "Reagendar consulta", route: "/reagendamento" },
     { label: "Avaliação", route: "/avaliacao" },
     { label: "Lembretes", route: "/lembretes" },
-    { label: "Redefinir senha", route: "/esqueci-senha" },
+    { label: "Redefinir senha", route: "/esquecisenha" },
     { label: "Integrantes", route: "/integrantes" }, 
     { label: "Contatos", route: "/contatos" }
 ];

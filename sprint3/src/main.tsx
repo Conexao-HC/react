@@ -11,6 +11,7 @@ import Cadastro from './routes/Cadastro/index.tsx'
 import Login from './routes/Login/index.tsx'
 import Integrantes from './routes/Integrantes/index.tsx'
 import Reagendamento from './routes/Reagendamento/Reagendamento.tsx'
+import Contatos from './routes/Contatos/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     {path:"/", element:<Login/>},
     {path:"Integrantes", element:<Integrantes/>},
     {path:"/Reagendamento", element:<Reagendamento/>},
+    {path:"/Contatos", element:<Contatos/>},
     
     ]
   }
