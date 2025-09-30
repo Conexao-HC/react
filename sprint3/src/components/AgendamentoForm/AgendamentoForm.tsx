@@ -30,9 +30,8 @@ export default function AgendamentoForm() {
     const navigate = useNavigate();
 
     const onSubmit = (data: AgendamentoFormData) => {
-        console.log("Dados de Agendamento Enviados:", data);
         alert(`Agendamento confirmado para ${data.nomePaciente} em ${data.dataConsulta}!`);
-        navigate('/'); 
+        navigate('/agendamento'); 
     };
 
     return (
