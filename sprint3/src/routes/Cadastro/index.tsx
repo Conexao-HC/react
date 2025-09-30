@@ -16,8 +16,20 @@ export default function Cadastro() {
     const senhaMonitorada = watch("senha", "");
 
     const onSubmit = (data: CadastroForm) => {
-        alert(`Cadastro realizado com sucesso para ${data.nome}! Você será redirecionado para o Login.`);
-        navigate('/');
+        
+        const loginData = {
+            cpf: data.cpf,
+            senha: data.senha,
+        };
+        
+        try {
+            localStorage.setItem('usuarioCadastrado', JSON.stringify(loginData)); 
+            
+            alert(`Cadastro de ${data.nome} realizado com sucesso! Redirecionando para o Login.`);
+            navigate('/');
+        } catch (e) {
+            alert("Erro ao salvar dados. Tente novamente.");
+        }
     };
 
     return (

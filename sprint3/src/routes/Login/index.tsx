@@ -1,5 +1,3 @@
-// src/routes/Login/index.tsx
-
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import type { LoginForm } from '../../types/login';
@@ -16,16 +14,25 @@ export default function Login() {
     const navigate = useNavigate();
 
     const onSubmit = (data: LoginForm) => {
-        console.log("Dados de Login:", data);
         
-        if (data.cpf === '12345678910' && data.senha === '123456') {
+        
+        const storedUser = localStorage.getItem('usuarioCadastrado');
+
+        if (!storedUser) {
+            alert("Nenhum usuário cadastrado. Crie uma conta primeiro.");
+            return;
+        }
+        const user = JSON.parse(storedUser);
+        if (data.cpf === user.cpf && data.senha === user.senha) {
             alert("Login efetuado com sucesso!");
-            navigate('/home');
+            navigate('/home'); 
         } else {
-            alert("CPF ou Senha incorretos.");
+            
+            alert("CPF ou Senha incorretos. Tente Novamente.");
         }
     };
 
+    
     return (
         <div className="flex flex-col items-center w-full min-h-screen bg-white py-10">
             
