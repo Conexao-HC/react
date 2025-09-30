@@ -4,21 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import type { AgendamentoExistente, AgendamentoFormData } from '../../types/agendamento';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 
-const agendamentoMock: AgendamentoExistente = {
-    id: 101,
-    pacienteId: 'RM12345',
-    nomePaciente: 'João da Silva',
-    email: 'joao.silva@exemplo.com',
-    medicoSelecionado: 'Dra. Santos', 
-    dataConsulta: '2025-10-15',
-    horarioConsulta: '14:30',
-    motivo: 'Check-up de rotina.',
+const agendamentoExemplo: AgendamentoExistente = {
+    pacienteId: '',
+    nomePaciente: '',
+    email: '',
+    medicoSelecionado: '', 
+    dataConsulta: '',
+    horarioConsulta: '',
+    motivo: '',
 };
 
 const medicos = [
     { value: 'Dr. Silva', label: 'Dr. João Silva (Clínico Geral)' },
     { value: 'Dra. Santos', label: 'Dra. Ana Santos (Pediatra)' },
     { value: 'Dr. Oliveira', label: 'Dr. Carlos Oliveira (Cardiologista)' },
+    { value: 'Dr. Teixeira', label: 'Dr. Marcio Teixeira (Ortopedista)' }
 ];
 
 export default function Reagendamento() {
@@ -34,20 +34,20 @@ export default function Reagendamento() {
 
     useEffect(() => {
         const dadosPreenchidos: AgendamentoFormData = {
-            nomePaciente: agendamentoMock.nomePaciente,
-            email: agendamentoMock.email,
-            medicoSelecionado: agendamentoMock.medicoSelecionado,
-            dataConsulta: agendamentoMock.dataConsulta,
-            horarioConsulta: agendamentoMock.horarioConsulta,
-            motivo: agendamentoMock.motivo,
+            nomePaciente: agendamentoExemplo.nomePaciente,
+            email: agendamentoExemplo.email,
+            medicoSelecionado: agendamentoExemplo.medicoSelecionado,
+            dataConsulta: agendamentoExemplo.dataConsulta,
+            horarioConsulta: agendamentoExemplo.horarioConsulta,
+            motivo: agendamentoExemplo.motivo,
         };
 
         reset(dadosPreenchidos); 
     }, [reset]); 
 
     const onSubmit = (data: AgendamentoFormData) => {
-        console.log("Dados de Reagendamento Enviados:", data, "ID:", agendamentoMock.id);
-        alert(`Reagendamento do ID ${agendamentoMock.id} concluído com sucesso!`);
+        console.log("Dados de Reagendamento Enviados:", data);
+        alert(`Reagendamento concluído com sucesso!`);
         navigate('/');
     };
 
@@ -67,12 +67,12 @@ export default function Reagendamento() {
                     <div className="relative mt-1">
                         <img src="/Challenge front-end/assets/img/lupa.png" alt="Lupa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                         <input
-                            id="consultaAnterior"
+                            
                             type="number"
-                            defaultValue={agendamentoMock.id} 
-                            disabled 
+                             
+                             
                             placeholder="Código da consulta anterior"
-                            className="block w-full border border-[#1277bd] rounded-lg shadow-sm pl-10 pr-3 py-3 bg-gray-100 cursor-not-allowed"
+                            className="block w-full border border-[#1277bd] rounded-lg shadow-sm pl-10 pr-3 py-3 bg-gray-100"
                         />
                     </div>
                 </div>

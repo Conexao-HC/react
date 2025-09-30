@@ -8,7 +8,6 @@ export type AgendamentoFormData = {
 };
 
 export type AgendamentoExistente = {
-    id: number;
     pacienteId: string;
     nomePaciente: string;
     email: string;

@@ -10,6 +10,7 @@ import Home from './routes/Home/index.tsx'
 import Cadastro from './routes/Cadastro/index.tsx'
 import Login from './routes/Login/index.tsx'
 import Integrantes from './routes/Integrantes/index.tsx'
+import Reagendamento from './routes/Reagendamento/Reagendamento.tsx'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
     {path:"/Agendamento", element:<AgendamentoPage/>},
     {path:"/", element:<Login/>},
     {path:"Integrantes", element:<Integrantes/>},
+    {path:"/Reagendamento", element:<Reagendamento/>},
     
 
     ]
