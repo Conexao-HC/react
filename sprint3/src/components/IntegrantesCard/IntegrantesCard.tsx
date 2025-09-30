@@ -1,4 +1,5 @@
-import type { Integrantes } from "../../data/DataIntegrantes";
+import type { Integrantes } from "../../types/integrantes";
+
 
 type IntegrantesCardProps = {
     integrantes: Integrantes;
