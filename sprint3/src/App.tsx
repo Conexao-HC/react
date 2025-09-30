@@ -3,15 +3,14 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 
-
 export default function App(){
   return(
-    <div className="container">
-
+    <div className="min-h-screen flex flex-col"> 
       <Header/>
-      <Outlet/>
+      <main className="flex-grow">
+          <Outlet/>
+      </main>
       <Footer/>
-
     </div>
   )
 }
