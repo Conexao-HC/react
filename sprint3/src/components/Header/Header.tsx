@@ -1,14 +1,12 @@
-// src/components/Header/Header.tsx
-
 import { Link } from 'react-router-dom';
 
-// 1. Define o tipo das Props que o App.tsx deve passar
+
 type HeaderProps = {
-    onToggleMenu: () => void; // Função para abrir o menu lateral/modal
-    menuAberto: boolean;      // Para acessibilidade (aria-expanded)
+    onToggleMenu: () => void; 
+    menuAberto: boolean;      
 };
 
-// 2. O componente recebe as props via destructuring
+
 export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
     
     return (
@@ -16,7 +14,7 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
             
             <div className="flex items-center justify-between px-4 py-3 w-full mx-auto">
                 
-                {/* Logo Link para Home */}
+                
                 <Link to="/home">
                     <img 
                         className="logohc w-28 h-auto" 
@@ -25,8 +23,8 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
                     />
                 </Link>
 
-                {/* Navegação Desktop */}
-                <nav className="hidden md:flex space-x-6">
+                
+                <nav className="hidden md:flex space-x-100">
                     <Link to="/faq" className="text-black text-lg font-medium hover:text-blue-700 transition duration-150">
                         FAQ
                     </Link>
@@ -35,7 +33,7 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
                     </Link>
                 </nav>
 
-                {/* 3. Botão de 3 Pontos (MENU) - Chamará a função recebida via Props */}
+                
                 <button 
                     onClick={onToggleMenu} 
                     className="md:hidden p-2 rounded-full hover:bg-blue-100 transition duration-150"
@@ -49,7 +47,7 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
                     />
                 </button>
 
-                {/* Botão de Usuário Desktop (mantido aqui, pode ser o mesmo toggle) */}
+                
                 <button
                     onClick={onToggleMenu}
                     className="hidden md:block p-2 rounded-full hover:bg-blue-100 transition duration-150"
@@ -62,7 +60,7 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
                 </button>
             </div>
             
-            {/* O Menu Suspenso Mobile FOI MOVIDO para o App.tsx (ou MenuLateral.tsx) */}
+            
 
         </header>
     );

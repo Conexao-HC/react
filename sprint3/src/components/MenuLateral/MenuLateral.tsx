@@ -1,5 +1,3 @@
-// src/components/MenuLateral.tsx
-
 import { Link, useNavigate } from 'react-router-dom';
 import { menuItems } from '../../data/DataMenu';
 
