@@ -1,20 +1,22 @@
-import { useState } from 'react';
+// src/components/Header/Header.tsx
+
 import { Link } from 'react-router-dom';
 
-export default function Header() {
-    const [menuAberto, setMenuAberto] = useState(false);
+// 1. Define o tipo das Props que o App.tsx deve passar
+type HeaderProps = {
+    onToggleMenu: () => void; // Função para abrir o menu lateral/modal
+    menuAberto: boolean;      // Para acessibilidade (aria-expanded)
+};
 
-    const toggleMenu = () => {
-        setMenuAberto(!menuAberto);
-    };
-
+// 2. O componente recebe as props via destructuring
+export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
+    
     return (
-       
         <header className="bg-[#acf0ff] shadow-md sticky top-0 z-20 w-full"> 
-            
             
             <div className="flex items-center justify-between px-4 py-3 w-full mx-auto">
                 
+                {/* Logo Link para Home */}
                 <Link to="/home">
                     <img 
                         className="logohc w-28 h-auto" 
@@ -23,23 +25,19 @@ export default function Header() {
                     />
                 </Link>
 
+                {/* Navegação Desktop */}
                 <nav className="hidden md:flex space-x-6">
-                    <Link 
-                        to="/faq" 
-                        className="text-black text-lg font-medium hover:text-blue-700 transition duration-150"
-                    >
+                    <Link to="/faq" className="text-black text-lg font-medium hover:text-blue-700 transition duration-150">
                         FAQ
                     </Link>
-                    <Link 
-                        to="/sobre" 
-                        className="text-black text-lg font-medium hover:text-blue-700 transition duration-150"
-                    >
+                    <Link to="/sobre" className="text-black text-lg font-medium hover:text-blue-700 transition duration-150">
                         Sobre
                     </Link>
                 </nav>
 
+                {/* 3. Botão de 3 Pontos (MENU) - Chamará a função recebida via Props */}
                 <button 
-                    onClick={toggleMenu} 
+                    onClick={onToggleMenu} 
                     className="md:hidden p-2 rounded-full hover:bg-blue-100 transition duration-150"
                     aria-expanded={menuAberto} 
                     aria-controls="mobile-menu"
@@ -51,40 +49,21 @@ export default function Header() {
                     />
                 </button>
 
+                {/* Botão de Usuário Desktop (mantido aqui, pode ser o mesmo toggle) */}
                 <button
-                    onClick={() => console.log('Abrir Menu de Usuário')}
+                    onClick={onToggleMenu}
                     className="hidden md:block p-2 rounded-full hover:bg-blue-100 transition duration-150"
                 >
-                     <img 
+                    <img 
                         src="/Challenge front-end/assets/img/tres-pontos.png" 
                         alt="Menu" 
                         className="w-6 h-6" 
                     />
                 </button>
             </div>
+            
+            {/* O Menu Suspenso Mobile FOI MOVIDO para o App.tsx (ou MenuLateral.tsx) */}
 
-
-            {menuAberto && (
-                <nav 
-                    id="mobile-menu"
-                    className="absolute top-full left-0 w-full bg-[#acf0ff] shadow-lg md:hidden border-t border-gray-300 transition-all duration-300"
-                >
-                    <Link 
-                        to="/faq" 
-                        className="block px-4 py-3 text-black text-base font-medium hover:bg-blue-200"
-                        onClick={toggleMenu} 
-                    >
-                        FAQ
-                    </Link>
-                    <Link 
-                        to="/sobre" 
-                        className="block px-4 py-3 text-black text-base font-medium hover:bg-blue-200"
-                        onClick={toggleMenu} 
-                    >
-                        Sobre
-                    </Link>
-                </nav>
-            )}
         </header>
     );
 }

@@ -13,13 +13,14 @@ export default function Cadastro() {
     } = useForm<CadastroForm>();
 
     const navigate = useNavigate();
-    const senhaMonitorada = watch("senha", "");
+    const senhaAssistida = watch("senha", "");
 
     const onSubmit = (data: CadastroForm) => {
         
         const loginData = {
             cpf: data.cpf,
             senha: data.senha,
+            nome: data.nome
         };
         
         try {
@@ -27,7 +28,7 @@ export default function Cadastro() {
             
             alert(`Cadastro de ${data.nome} realizado com sucesso! Redirecionando para o Login.`);
             navigate('/');
-        } catch (e) {
+        } catch {
             alert("Erro ao salvar dados. Tente novamente.");
         }
     };
@@ -90,7 +91,7 @@ export default function Cadastro() {
                                 className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg focus:ring-blue-500 focus:border-blue-500 ${errors.confirmarSenha ? 'border-red-500' : 'border-gray-700'}`}
                                 {...register("confirmarSenha", { 
                                     required: "A confirmação é obrigatória.",
-                                    validate: value => value === senhaMonitorada || "As senhas não conferem."
+                                    validate: value => value === senhaAssistida || "As senhas não conferem."
                                 })}
                             />
                             {errors.confirmarSenha && <small className="text-red-500 block mt-1">{errors.confirmarSenha.message}</small>}
