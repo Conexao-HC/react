@@ -15,6 +15,7 @@ import Contatos from './routes/Contatos/index.tsx'
 import EsqueciSenha from './routes/EsqueciSenha/index.tsx'
 import Lembretes from './routes/Lembretes/index.tsx'
 import Sobre from './routes/Sobre/index.tsx'
+import MeusDados from './routes/MeusDados/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,8 @@ const router = createBrowserRouter([
     {path:"/Contatos", element:<Contatos/>},
     {path:"/EsqueciSenha", element:<EsqueciSenha/>},
     {path:"/Lembretes", element:<Lembretes/>},
-    {path:"/Sobre", element:<Sobre/>}
+    {path:"/Sobre", element:<Sobre/>},
+    {path:"/MeusDados", element:<MeusDados/>}
     
     ]
   }
