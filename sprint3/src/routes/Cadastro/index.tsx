@@ -20,7 +20,10 @@ export default function Cadastro() {
         const loginData = {
             cpf: data.cpf,
             senha: data.senha,
-            nome: data.nome
+            nome: data.nome,
+            email: data.email,
+            telefone: data.telefone,
+            nascimento: data.dataNascimento 
         };
         
         try {

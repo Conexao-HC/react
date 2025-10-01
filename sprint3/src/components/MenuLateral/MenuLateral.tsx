@@ -1,7 +1,6 @@
-// src/components/MenuLateral.tsx
-
 import { Link, useNavigate } from 'react-router-dom';
 import { menuItems } from '../../data/DataMenu';
+import avatar from '../../assets/img/perfil.png'
 
 
 
@@ -36,8 +35,8 @@ export default function MenuLateral({ nomeUsuario, onClose }: MenuLateralProps) 
             <div className="bg-[#d9d9d9] rounded-md p-2 flex items-center mb-4">
                 <img 
                     className="w-8 h-8 rounded-full object-cover mr-2" 
-                    src="/Challenge front-end/assets/img/perfil.png" 
-                    alt="Foto de Perfil"
+                    src={avatar} 
+                    alt="Avatar do perfil"
                 />
                 <p className="text-sm font-medium text-black truncate">{nomeUsuario}</p>
             </div>

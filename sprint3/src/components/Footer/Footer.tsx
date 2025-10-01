@@ -1,11 +1,18 @@
+import fotoInstagram from '../../assets/img/instagram.png'
+import fotoYoutube from '../../assets/img/youtube.png'
+import fotoFacebook from '../../assets/img/facebook.png'
+import fotoTwitter from '../../assets/img/twitter.png'
+import fotoLinkedin from '../../assets/img/sinal-do-linkedin.png'
+import fotoTelefone from '../../assets/img/telefone.png'
+
 export default function Footer() {
     
     const redesSociais = [
-        { name: 'Instagram', src: '/Challenge front-end/assets/img/instagram.png', alt: 'Instagram', url: 'https://www.instagram.com' },
-        { name: 'Youtube', src: '/Challenge front-end/assets/img/youtube.png', alt: 'Youtube', url: 'https://www.youtube.com' },
-        { name: 'Facebook', src: '/Challenge front-end/assets/img/facebook.png', alt: 'Facebook', url: 'https://www.facebook.com' },
-        { name: 'Twitter', src: '/Challenge front-end/assets/img/twitter.png', alt: 'Twitter', url: 'https://www.twitter.com' },
-        { name: 'LinkedIn', src: '/Challenge front-end/assets/img/sinal-do-linkedin.png', alt: 'LinkedIn', url: 'https://www.linkedin.com' },
+        { name: 'Instagram', src: fotoInstagram, alt: 'Instagram', url: 'https://www.instagram.com/hospitalhcfmusp/' },
+        { name: 'Youtube', src: fotoYoutube, alt: 'Youtube', url: 'https://www.youtube.com/channel/UC_DUjcI35Hm0ix74KDQ67Jw/featured' },
+        { name: 'Facebook', src: fotoFacebook, alt: 'Facebook', url: 'https://www.facebook.com/hospitaldasclinicasdafmusp' },
+        { name: 'Twitter', src: fotoTwitter, alt: 'Twitter', url: 'https://x.com/hospitalHCFMUSP' },
+        { name: 'LinkedIn', src: fotoLinkedin, alt: 'LinkedIn', url: 'https://www.linkedin.com/company/hcfmusp/' },
     ];
     
     return (
@@ -19,7 +26,7 @@ export default function Footer() {
                     <div className="flex items-center justify-center md:justify-start space-x-2 mt-4">
                         <img 
                             className="telefonelogo w-5 h-5" 
-                            src="/Challenge front-end/assets/img/telefone.png" 
+                            src={fotoTelefone} 
                             alt="Telefone" 
                         />
                         <p className="numerotelefone font-semibold text-lg">
@@ -49,7 +56,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="text-sm opacity-80 mt-4 md:mt-0 md:self-start">
+                <div className="text-sm opacity-90 mt-4 md:mt-0 md:self-start">
                     <p>Copyright &copy; 2025. Todos os direitos reservados.</p>
                 </div>
                 

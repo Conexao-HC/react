@@ -10,8 +10,12 @@ import Home from './routes/Home/index.tsx'
 import Cadastro from './routes/Cadastro/index.tsx'
 import Login from './routes/Login/index.tsx'
 import Integrantes from './routes/Integrantes/index.tsx'
-import Reagendamento from './routes/Reagendamento/Reagendamento.tsx'
+import Reagendamento from './routes/Reagendamento/index.tsx'
 import Contatos from './routes/Contatos/index.tsx'
+import EsqueciSenha from './routes/EsqueciSenha/index.tsx'
+import Lembretes from './routes/Lembretes/index.tsx'
+import Sobre from './routes/Sobre/index.tsx'
+import MeusDados from './routes/MeusDados/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +31,10 @@ const router = createBrowserRouter([
     {path:"Integrantes", element:<Integrantes/>},
     {path:"/Reagendamento", element:<Reagendamento/>},
     {path:"/Contatos", element:<Contatos/>},
+    {path:"/EsqueciSenha", element:<EsqueciSenha/>},
+    {path:"/Lembretes", element:<Lembretes/>},
+    {path:"/Sobre", element:<Sobre/>},
+    {path:"/MeusDados", element:<MeusDados/>}
     
     ]
   }

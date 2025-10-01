@@ -2,7 +2,11 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import type { AgendamentoExistente, AgendamentoFormData } from '../../types/agendamento';
-import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import SectionHeader from '../../components/SecaoHeader/SecaoHeader';
+import fotoLupa from '../../assets/img/lupa.png'
+import fotoCalendario from '../../assets/img/calendar.png'
+import fotoGostar from '../../assets/img/gostar.png'
+import fotoEscreve from '../../assets/img/escreva.png'
 
 const agendamentoExemplo: AgendamentoExistente = {
     pacienteId: '',
@@ -32,6 +36,18 @@ export default function Reagendamento() {
 
     const navigate = useNavigate();
 
+    const usuarioJson = localStorage.getItem('usuarioCadastrado');
+    let nomeUsuario = "Paciente";
+
+    if (usuarioJson) {
+        try {
+            const usuario = JSON.parse(usuarioJson);
+            nomeUsuario = usuario.nome ? usuario.nome.split(' ')[0] : "Paciente"; 
+        } catch (e) {
+            console.error("Erro ao ler dados de usuário:", e);
+        }
+    }
+    
     useEffect(() => {
         const dadosPreenchidos: AgendamentoFormData = {
             nomePaciente: agendamentoExemplo.nomePaciente,
@@ -55,7 +71,7 @@ export default function Reagendamento() {
         <div className="flex flex-col items-center w-full min-h-screen bg-gray-50 py-10">
             
             <SectionHeader
-                tituloPrincipal={`Olá, Paciente!`}
+                tituloPrincipal={`Olá, ${nomeUsuario}!`}
                 tagSecundaria="REAGENDAMENTO"
                 corTag="#acf0ff" 
             />
@@ -65,12 +81,10 @@ export default function Reagendamento() {
                 <div>
                     <label htmlFor="consultaAnterior" className="block text-sm font-medium text-gray-700">Código da Consulta Anterior</label>
                     <div className="relative mt-1">
-                        <img src="/Challenge front-end/assets/img/lupa.png" alt="Lupa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                        <img src={fotoLupa} alt="Lupa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                         <input
                             
                             type="number"
-                             
-                             
                             placeholder="Código da consulta anterior"
                             className="block w-full border border-[#1277bd] rounded-lg shadow-sm pl-10 pr-3 py-3 bg-gray-100"
                         />
@@ -96,7 +110,7 @@ export default function Reagendamento() {
                     <div>
                         <label htmlFor="dataConsulta" className="block text-sm font-medium text-gray-700">Dia Preferencial (Nova Data)</label>
                         <div className="relative mt-1">
-                            <img src="/Challenge front-end/assets/img/calendar.png" alt="Calendário" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                            <img src={fotoCalendario} alt="Calendário" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                             <input
                                 id="dataConsulta"
                                 type="date"
@@ -109,7 +123,7 @@ export default function Reagendamento() {
                     <div>
                         <label htmlFor="horarioConsulta" className="block text-sm font-medium text-gray-700">Novo Horário</label>
                         <div className="relative mt-1">
-                            <img src="/Challenge front-end/assets/img/escreva.png" alt="Lápis" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                            <img src={fotoEscreve} alt="Lápis" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                             <input
                                 id="horarioConsulta"
                                 type="time"
@@ -131,7 +145,7 @@ export default function Reagendamento() {
                         {...register("motivo")}
                     />
                      <small className="flex items-center text-gray-500 text-xs mt-1">
-                        <img src="/Challenge front-end/assets/img/gostar.png" alt="Like" className="w-4 h-4 mr-1" />
+                        <img src={fotoGostar} alt="Like" className="w-4 h-4 mr-1" />
                         O motivo do agendamento anterior já foi pré-preenchido.
                     </small>
                 </div>
