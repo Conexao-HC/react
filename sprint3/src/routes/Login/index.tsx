@@ -84,7 +84,7 @@ export default function Login() {
                     </div>
 
                     <div className="flex justify-end">
-                        <Link to="/esqueci-senha" className="text-sm font-bold text-[#156b8b] hover:text-blue-700">
+                        <Link to="/esquecisenha" className="text-sm font-bold text-[#156b8b] hover:text-blue-700">
                             Esqueci minha senha
                         </Link>
                     </div>

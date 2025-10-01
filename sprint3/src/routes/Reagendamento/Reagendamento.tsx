@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import type { AgendamentoExistente, AgendamentoFormData } from '../../types/agendamento';
-import SectionHeader from '../../components/SectionHeader/SectionHeader';
+import SectionHeader from '../../components/SecaoHeader/SecaoHeader';
 
 const agendamentoExemplo: AgendamentoExistente = {
     pacienteId: '',
