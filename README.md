@@ -1,16 +1,25 @@
 # Conexão HC
-O sistema foi criado para aproximar os pacientes do HC das soluções digitais, oferecendo mais facilidade e agilidade no agendamento e acompanhamento de consultas. A proposta busca diminuir a quantidade de faltas e tornar o processo mais simples para todos.
 
-# Tecnologias Utilizadas
-• React + Vite + TypeScript
-• Tailwind CSS (para estilizar o projeto)
+O sistema foi criado para aproximar os pacientes do HC das soluções digitais, oferecendo mais facilidade e agilidade no agendamento e acompanhamento de consultas.  
+A proposta busca diminuir a quantidade de faltas e tornar o processo mais simples para todos.
 
-# Integrantes
-1TDSPF
-Enzo Vaz / RM561702
-Lucas Ryuji Fukuda / RM562152
+---
 
-# Estrutura de pastas do projeto
+## Tecnologias Utilizadas
+- React + Vite + TypeScript  
+- Tailwind CSS (para estilizar o projeto)
+
+---
+
+## Integrantes
+- 1TDSPF  
+- Enzo Vaz / RM561702  
+- Lucas Ryuji Fukuda / RM562152  
+
+---
+
+## Estrutura de pastas do projeto
+
 README.md
 sprint3/
 ├── src/               
@@ -31,6 +40,8 @@ sprint3/
 ├── tsconfig.node.json
 └── vite.config.ts
 
-#Links
+---
+
+## Links
 Link do repositório: https://github.com/Conexao-HC/react
-Link do vídeo do youtube: 
+Link do vídeo do youtube:
