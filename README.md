@@ -19,7 +19,7 @@ A proposta busca diminuir a quantidade de faltas e tornar o processo mais simple
 ---
 
 ## Estrutura de pastas do projeto
-'''
+```
 README.md
 sprint3/
 ├── src/               
@@ -39,11 +39,11 @@ sprint3/
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
-'''
+```
 ---
 
 ## Links
-'''
+```
 Link do repositório: https://github.com/Conexao-HC/react
 Link do vídeo do youtube:
-'''
+```
