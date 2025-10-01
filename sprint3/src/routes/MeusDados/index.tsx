@@ -3,6 +3,12 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import type { CadastroForm } from '../../types/cadastro';
+import fotoPessoa from '../../assets/img/pessoa.png'
+import fotoEmail from '../../assets/img/e-mail.png'
+import fotoCalendario from '../../assets/img/calendar.png'
+import fotoTelefone from '../../assets/img/silhueta-de-alca-de-telefone.png'
+import fotoEscreve from '../../assets/img/escreva.png'
+import fotoCadeado from '../../assets/img/cadeado.png'
 
 
 const COR_FUNDO = '#acf0ff'; 
@@ -83,7 +89,7 @@ export default function MeusDados() {
                 <div className="grid grid-cols-1 gap-4">
                     <div>
                         <label htmlFor="nome" className="block text-sm font-bold text-gray-700 flex items-center">
-                            <img src="/Challenge front-end/assets/img/pessoa.png" alt="Pessoa" className="w-4 h-4 mr-2" />Nome do Paciente
+                            <img src={fotoPessoa} alt="Pessoa" className="w-4 h-4 mr-2" />Nome do Paciente
                         </label>
                         <input type="text" id="nome"
                             className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg focus:ring-blue-500 focus:border-blue-500 ${errors.nome ? 'border-red-500' : 'border-gray-700'}`}
@@ -93,7 +99,7 @@ export default function MeusDados() {
                     </div>
                     <div>
                         <label htmlFor="email" className="block text-sm font-bold text-gray-700 flex items-center">
-                            <img src="/Challenge front-end/assets/img/e-mail.png" alt="Email" className="w-4 h-4 mr-2" />Email do Paciente
+                            <img src={fotoEmail} alt="Email" className="w-4 h-4 mr-2" />Email do Paciente
                         </label>
                         <input type="email" id="email"
                             className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg focus:ring-blue-500 focus:border-blue-500 ${errors.email ? 'border-red-500' : 'border-gray-700'}`}
@@ -105,7 +111,7 @@ export default function MeusDados() {
                 
                 <div className="pt-2 border-t border-gray-300">
                     <label className="block text-sm font-bold text-gray-700 flex items-center">
-                         <img src="/Challenge front-end/assets/img/cadeado.png" alt="Cadeado" className="w-4 h-4 mr-2" />Senha do Paciente
+                         <img src={fotoCadeado} alt="Cadeado" className="w-4 h-4 mr-2" />Senha do Paciente
                     </label>
                     <Link to="/esquecisenha" className="text-blue-600 hover:underline text-sm font-medium mt-1 block">
                         Redefinir Senha
@@ -115,7 +121,7 @@ export default function MeusDados() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="dataNascimento" className="block text-sm font-bold text-gray-700 flex items-center">
-                            <img src="/Challenge front-end/assets/img/calendar.png" alt="Calendário" className="w-4 h-4 mr-2" />Data de Nascimento
+                            <img src={fotoCalendario} alt="Calendário" className="w-4 h-4 mr-2" />Data de Nascimento
                         </label>
                         <input type="date" id="dataNascimento"
                             className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg focus:ring-blue-500 focus:border-blue-500 ${errors.dataNascimento ? 'border-red-500' : 'border-gray-700'}`}
@@ -125,7 +131,7 @@ export default function MeusDados() {
                     </div>
                     <div>
                         <label htmlFor="telefone" className="block text-sm font-bold text-gray-700 flex items-center">
-                            <img src="/Challenge front-end/assets/img/silhueta-de-alca-de-telefone.png" alt="Telefone" className="w-4 h-4 mr-2" />Telefone
+                            <img src={fotoTelefone} alt="Telefone" className="w-4 h-4 mr-2" />Telefone
                         </label>
                         <input type="tel" id="telefone"
                             className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg focus:ring-blue-500 focus:border-blue-500 ${errors.telefone ? 'border-red-500' : 'border-gray-700'}`}
@@ -137,7 +143,7 @@ export default function MeusDados() {
 
                 <div>
                     <label htmlFor="cpf" className="block text-sm font-bold text-gray-700 flex items-center">
-                         <img src="/Challenge front-end/assets/img/escreva.png" alt="Lápis" className="w-4 h-4 mr-2" />CPF do Paciente
+                         <img src={fotoEscreve} alt="Lápis" className="w-4 h-4 mr-2" />CPF do Paciente
                     </label>
                     <input type="text" id="cpf"
                         className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg focus:ring-blue-500 focus:border-blue-500 ${errors.cpf ? 'border-red-500' : 'border-gray-700'}`}

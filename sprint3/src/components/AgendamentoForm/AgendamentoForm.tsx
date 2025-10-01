@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import type { AgendamentoFormData } from '../../types/agendamento';
+import fotoLupa from '../../assets/img/lupa.png'
+import fotoCalendario from '../../assets/img/calendar.png'
+import fotoRelogio from '../../assets/img/relogio.png'
 
 
 const medicos = [
@@ -56,7 +59,7 @@ export default function AgendamentoForm() {
                 <div>
                     <label htmlFor="nomePaciente" className="block text-sm font-medium text-gray-700">Seu Nome Completo</label>
                     <div className="relative mt-1">
-                         <img src="/Challenge front-end/assets/img/lupa.png" alt="Lupa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                         <img src={fotoLupa} alt="Lupa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                         <input
                             id="nomePaciente"
                             type="text"
@@ -90,7 +93,7 @@ export default function AgendamentoForm() {
                     <div>
                         <label htmlFor="dataConsulta" className="block text-sm font-medium text-gray-700">Data da Consulta</label>
                         <div className="relative mt-1">
-                            <img src="/Challenge front-end/assets/img/calendar.png" alt="Calendário" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                            <img src={fotoCalendario} alt="Calendário" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                             <input
                                 id="dataConsulta"
                                 type="date"
@@ -103,7 +106,7 @@ export default function AgendamentoForm() {
                     <div>
                         <label htmlFor="horarioConsulta" className="block text-sm font-medium text-gray-700">Horário</label>
                         <div className="relative mt-1">
-                            <img src="/Challenge front-end/assets/img/relogio.png" alt="Relógio" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                            <img src={fotoRelogio} alt="Relógio" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                             <input
                                 id="horarioConsulta"
                                 type="time"

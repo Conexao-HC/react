@@ -1,4 +1,8 @@
 import { Link } from 'react-router-dom';
+import bannerHC from '../../assets/img/menuhc.png'
+import fotoMedico from '../../assets/img/fotomedico.png'
+import fotoIdoso from '../../assets/img/veio.png'
+
 
 export default function Home() {
     return (
@@ -10,8 +14,9 @@ export default function Home() {
                     <div className="bg-[#afdeff] rounded-lg shadow-xl overflow-hidden">
                         <img 
                             className="w-full h-auto" 
-                            src="/Challenge front-end/assets/img/menuhc.png" 
+                            src= {bannerHC} 
                             alt="Banner HC" 
+                            
                         />
                     </div>
                 </div>
@@ -30,7 +35,7 @@ export default function Home() {
                         <span className="text-sm md:text-base font-medium text-black group-hover:text-blue-700">REMARCAR CONSULTA</span>
                     </Link>
 
-                    <Link to="/dados" className="group border border-[#1277bd] rounded-lg p-3 flex justify-center items-center h-16 text-center hover:bg-blue-50 transition duration-150">
+                    <Link to="/meusdados" className="group border border-[#1277bd] rounded-lg p-3 flex justify-center items-center h-16 text-center hover:bg-blue-50 transition duration-150">
                         <span className="text-sm md:text-base font-medium text-black group-hover:text-blue-700">MEUS DADOS</span>
                     </Link>
                 </section>
@@ -40,7 +45,7 @@ export default function Home() {
                     <div className="w-full md:w-1/2 flex justify-center md:order-2">
                         <img 
                             className="w-48 h-auto rounded shadow-lg object-cover mb-4 md:mb-0" 
-                            src="/Challenge front-end/assets/img/fotomedico.png" 
+                            src= {fotoMedico} 
                             alt="Foto do Médico" 
                         />
                     </div>
@@ -61,7 +66,7 @@ export default function Home() {
                     <div className="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0">
                         <img 
                             className="w-32 h-auto rounded-lg border border-black" 
-                            src="/Challenge front-end/assets/img/veio.png" 
+                            src={fotoIdoso} 
                             alt="Foto Idoso" 
                         />
                         <Link to="/contatos" className="border border-[#1277bd] rounded-lg px-6 py-3 bg-white hover:bg-blue-50 text-base font-medium transition duration-150 shadow-md">

@@ -1,6 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import type { LembreteForm } from '../../types/lembretes';
+import fotoLupa from '../../assets/img/lupa.png'
+import fotoEscreve from '../../assets/img/escreva.png'
+import fotoPessoa from '../../assets/img/pessoa.png'
+import fotoMensagem from '../../assets/img/balao-de-fala-com-linhas-de-texto.png'
 
 
 const COR_FUNDO_BLOCO = '#d9d9d9';
@@ -62,7 +66,7 @@ export default function Lembretes() {
                 <div>
                     <label htmlFor="codigoConsulta" className="block text-sm font-bold text-gray-700">Método de recebimento</label>
                     <div className="relative mt-1">
-                        <img src="/Challenge front-end/assets/img/lupa.png" alt="Lupa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                        <img src={fotoLupa} alt="Lupa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                         <input
                             id="metodoLembrete"
                             type="text"
@@ -78,7 +82,7 @@ export default function Lembretes() {
                 <div>
                     <label htmlFor="paciente" className="block text-sm font-bold text-gray-700">Informe o especialista</label>
                     <div className="relative mt-1">
-                        <img src="/Challenge front-end/assets/img/pessoa.png" alt="Pessoa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                        <img src={fotoPessoa} alt="Pessoa" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                         <input
                             id="paciente"
                             type="text"
@@ -94,7 +98,7 @@ export default function Lembretes() {
                 <div>
                     <label htmlFor="dataLembrete" className="block text-sm font-bold text-gray-700">Dia para receber o lembrete</label>
                     <div className="relative mt-1">
-                        <img src="/Challenge front-end/assets/img/escreva.png" alt="Lápis" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                        <img src={fotoEscreve} alt="Lápis" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                         <input
                             id="dataLembrete"
                             type="date"
@@ -110,7 +114,7 @@ export default function Lembretes() {
                 <div>
                     <label htmlFor="mensagemLembrete" className="block text-sm font-bold text-gray-700">Mensagem do lembrete</label>
                     <div className="relative mt-1">
-                        <img src="/Challenge front-end/assets/img/balao-de-fala-com-linhas-de-texto.png" alt="Mensagem" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
+                        <img src={fotoMensagem} alt="Mensagem" className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 z-10 opacity-50" />
                         <input
                             id="mensagemLembrete"
                             type="text"

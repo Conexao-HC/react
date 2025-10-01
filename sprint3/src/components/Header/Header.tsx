@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import logoHC from '../../assets/img/logohc.png'
+import tresPontos from '../../assets/img/tres-pontos.png'
 
 
 type HeaderProps = {
@@ -18,7 +20,7 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
                 <Link to="/home">
                     <img 
                         className="logohc w-28 h-auto" 
-                        src="/Challenge front-end/assets/img/logohc.png" 
+                        src={logoHC} 
                         alt="Logo HC" 
                     />
                 </Link>
@@ -41,7 +43,7 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
                     aria-controls="mobile-menu"
                 >
                     <img 
-                        src="/Challenge front-end/assets/img/tres-pontos.png" 
+                        src={tresPontos} 
                         alt="Menu" 
                         className="w-8 h-8" 
                     />
@@ -53,7 +55,7 @@ export default function Header({ onToggleMenu, menuAberto }: HeaderProps) {
                     className="hidden md:block p-2 rounded-full hover:bg-blue-100 transition duration-150"
                 >
                     <img 
-                        src="/Challenge front-end/assets/img/tres-pontos.png" 
+                        src={tresPontos} 
                         alt="Menu" 
                         className="w-6 h-6" 
                     />

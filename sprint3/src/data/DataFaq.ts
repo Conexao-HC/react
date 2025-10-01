@@ -1,5 +1,3 @@
-// src/data/faqData.ts
-
 export type FaqItem = {
     id: number;
     pergunta: string;

@@ -1,7 +1,7 @@
-// src/routes/Contatos/index.tsx
-
 import { contatos } from "../../data/DataContatos";
-
+import fotoTelefone from '../../assets/img/telefone.png'
+import fotoEmail from '../../assets/img/o-email.png'
+import fotoRobo from '../../assets/img/assistente-de-robo.png'
 
 
 export default function Contatos() {
@@ -32,7 +32,7 @@ export default function Contatos() {
                             rel="noopener noreferrer"
                             className="flex items-center space-x-4 text-2xl font-semibold text-black hover:text-blue-600 transition"
                         >
-                            <img className="w-10 h-10 object-cover" src="/Challenge front-end/assets/img/assistente-de-robo.png" alt="Assistente Virtual" />
+                            <img className="w-10 h-10 object-cover" src={fotoRobo} alt="Assistente Virtual" />
                             <span>Interaja com o nosso assistente virtual</span>
                         </a>
 
@@ -51,7 +51,7 @@ export default function Contatos() {
                         <div>
                             <p className="text-2xl font-semibold mb-1">Telefone do HC</p>
                             <div className="flex items-center space-x-3">
-                                <img className="w-6 h-6 object-cover" src="/Challenge front-end/assets/img/telefone.png" alt="Telefone" />
+                                <img className="w-6 h-6 object-cover" src={fotoTelefone} alt="Telefone" />
                                 <p className="text-lg font-semibold">{contatoDados.telefone}</p>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ export default function Contatos() {
                         <div>
                             <p className="text-2xl font-semibold mb-1">E-mail do Conexão HC</p>
                             <div className="flex items-center space-x-3">
-                                <img className="w-6 h-6 object-cover" src="/Challenge front-end/assets/img/o-email.png" alt="E-mail" />
+                                <img className="w-6 h-6 object-cover" src={fotoEmail} alt="E-mail" />
                                 <p className="text-lg font-semibold">{contatoDados.email}</p>
                             </div>
                         </div>
