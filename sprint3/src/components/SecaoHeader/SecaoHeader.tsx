@@ -1,12 +1,6 @@
+import type { SecaoHeaderProps } from "../../types/secaoheader";
 
-type SectionHeaderProps = {
-    tituloPrincipal: string; 
-    tagSecundaria: string; 
-    corTag: string; 
-};
-
-
-export default function SectionHeader({ tituloPrincipal, tagSecundaria, corTag }: SectionHeaderProps) {
+export default function SecaoHeader({ tituloPrincipal, tagSecundaria, corTag }: SecaoHeaderProps) {
     return (
         <div className="w-full max-w-lg bg-[#d9d9d9] p-4 rounded-lg shadow-xl mb-8">
             <div className="flex justify-between items-center mb-4">
