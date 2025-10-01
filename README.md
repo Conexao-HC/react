@@ -45,5 +45,5 @@ sprint3/
 ## Links
 ```
 Link do repositório: https://github.com/Conexao-HC/react
-Link do vídeo do youtube:
+Link do vídeo do youtube: https://www.youtube.com/watch?v=m5Vy5PgjFMw
 ```
