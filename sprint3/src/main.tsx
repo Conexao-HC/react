@@ -13,6 +13,7 @@ import Integrantes from './routes/Integrantes/index.tsx'
 import Reagendamento from './routes/Reagendamento/Reagendamento.tsx'
 import Contatos from './routes/Contatos/index.tsx'
 import EsqueciSenha from './routes/EsqueciSenha/index.tsx'
+import Lembretes from './routes/Lembretes/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
     {path:"/Reagendamento", element:<Reagendamento/>},
     {path:"/Contatos", element:<Contatos/>},
     {path:"/EsqueciSenha", element:<EsqueciSenha/>},
+    {path:"/Lembretes", element:<Lembretes/>}
     
     ]
   }
