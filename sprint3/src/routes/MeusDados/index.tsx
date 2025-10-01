@@ -76,7 +76,7 @@ export default function MeusDados() {
                 >
                     MEUS DADOS
                 </h1>
-                <p className="text-sm font-medium text-center text-black mt-2 underline mb-6">
+                <p className="text-sm font-bold text-center text-black mt-2 mb-6">
                     Essa é a área de DADOS DO PACIENTE, aqui você poderá consultar os dados da sua consulta ou troca-los se precisar.
                 </p>
             </div>

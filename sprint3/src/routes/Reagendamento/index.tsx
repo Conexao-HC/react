@@ -36,6 +36,18 @@ export default function Reagendamento() {
 
     const navigate = useNavigate();
 
+    const usuarioJson = localStorage.getItem('usuarioCadastrado');
+    let nomeUsuario = "Paciente";
+
+    if (usuarioJson) {
+        try {
+            const usuario = JSON.parse(usuarioJson);
+            nomeUsuario = usuario.nome ? usuario.nome.split(' ')[0] : "Paciente"; 
+        } catch (e) {
+            console.error("Erro ao ler dados de usuário:", e);
+        }
+    }
+    
     useEffect(() => {
         const dadosPreenchidos: AgendamentoFormData = {
             nomePaciente: agendamentoExemplo.nomePaciente,
@@ -59,7 +71,7 @@ export default function Reagendamento() {
         <div className="flex flex-col items-center w-full min-h-screen bg-gray-50 py-10">
             
             <SectionHeader
-                tituloPrincipal={`Olá, Paciente!`}
+                tituloPrincipal={`Olá, ${nomeUsuario}!`}
                 tagSecundaria="REAGENDAMENTO"
                 corTag="#acf0ff" 
             />
@@ -73,8 +85,6 @@ export default function Reagendamento() {
                         <input
                             
                             type="number"
-                             
-                             
                             placeholder="Código da consulta anterior"
                             className="block w-full border border-[#1277bd] rounded-lg shadow-sm pl-10 pr-3 py-3 bg-gray-100"
                         />

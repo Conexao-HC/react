@@ -22,7 +22,8 @@ export default function Cadastro() {
             senha: data.senha,
             nome: data.nome,
             email: data.email,
-            telefone: data.telefone
+            telefone: data.telefone,
+            nascimento: data.dataNascimento 
         };
         
         try {

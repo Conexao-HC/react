@@ -8,11 +8,11 @@ import fotoTelefone from '../../assets/img/telefone.png'
 export default function Footer() {
     
     const redesSociais = [
-        { name: 'Instagram', src: fotoInstagram, alt: 'Instagram', url: 'https://www.instagram.com' },
-        { name: 'Youtube', src: fotoYoutube, alt: 'Youtube', url: 'https://www.youtube.com' },
-        { name: 'Facebook', src: fotoFacebook, alt: 'Facebook', url: 'https://www.facebook.com' },
-        { name: 'Twitter', src: fotoTwitter, alt: 'Twitter', url: 'https://www.twitter.com' },
-        { name: 'LinkedIn', src: fotoLinkedin, alt: 'LinkedIn', url: 'https://www.linkedin.com' },
+        { name: 'Instagram', src: fotoInstagram, alt: 'Instagram', url: 'https://www.instagram.com/hospitalhcfmusp/' },
+        { name: 'Youtube', src: fotoYoutube, alt: 'Youtube', url: 'https://www.youtube.com/channel/UC_DUjcI35Hm0ix74KDQ67Jw/featured' },
+        { name: 'Facebook', src: fotoFacebook, alt: 'Facebook', url: 'https://www.facebook.com/hospitaldasclinicasdafmusp' },
+        { name: 'Twitter', src: fotoTwitter, alt: 'Twitter', url: 'https://x.com/hospitalHCFMUSP' },
+        { name: 'LinkedIn', src: fotoLinkedin, alt: 'LinkedIn', url: 'https://www.linkedin.com/company/hcfmusp/' },
     ];
     
     return (
