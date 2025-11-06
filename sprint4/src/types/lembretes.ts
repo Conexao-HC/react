@@ -1,6 +1,13 @@
+
+export type Lembrete = {
+  idLembretes: number;
+  dataLembrete: string;
+  meio: string;
+  mensagem: string;
+};
+
 export type LembreteForm = {
-    metodoLembrete: number;
-    paciente: string;
-    dataLembrete: Date;
-    mensagemLembrete: string;
+  dataLembrete: string;
+  meio: string;
+  mensagem: string;
 };
