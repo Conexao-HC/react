@@ -2,19 +2,27 @@ import { Link, useNavigate } from 'react-router-dom';
 import { menuItems } from '../../data/DataMenu';
 import avatar from '../../assets/img/perfil.png'
 
-
-
 type MenuLateralProps = {
-    nomeUsuario: string;
     onClose: () => void;
 };
 
-export default function MenuLateral({ nomeUsuario, onClose }: MenuLateralProps) {
+export default function MenuLateral({ onClose }: MenuLateralProps) {
     const navigate = useNavigate();
 
+    let nomeUsuario = "Usuário"; 
+    const usuarioJson = localStorage.getItem('usuarioLogado'); 
+    
+    if (usuarioJson) {
+        try {
+            const usuario = JSON.parse(usuarioJson);
+            nomeUsuario = usuario.nome || "Usuário"; 
+        } catch (e) {
+            console.error("Erro ao ler dados do usuário no menu:", e);
+        }
+    }
+
     const handleLogout = () => {
-        
-        localStorage.removeItem('usuarioCadastrado');
+        localStorage.removeItem('usuarioLogado'); 
         onClose(); 
         navigate('/'); 
     };
@@ -23,14 +31,12 @@ export default function MenuLateral({ nomeUsuario, onClose }: MenuLateralProps) 
         
         <div className="w-60 h-full bg-white shadow-2xl p-4 flex flex-col fixed top-0 right-0 z-50">
             
-           
             <button 
                 onClick={onClose} 
                 className="bg-[#4c88cc] text-white text-sm font-medium rounded-md w-14 py-1 self-start mb-4 hover:bg-blue-700 transition"
             >
                 Voltar
             </button>
-            
             
             <div className="bg-[#d9d9d9] rounded-md p-2 flex items-center mb-4">
                 <img 
