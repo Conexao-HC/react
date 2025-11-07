@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
 import type { LoginForm } from '../../types/login';
 
+const API_URL = "https://sprint4-quarkus.onrender.com"; 
 
 export default function Login() {
     
@@ -13,22 +14,50 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    const onSubmit = (data: LoginForm) => {
+    const onSubmit = async (data: LoginForm) => {
         
-        
-        const storedUser = localStorage.getItem('usuarioCadastrado');
+        try {
+            const loginResponse = await fetch(`${API_URL}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data), 
+            });
 
-        if (!storedUser) {
-            alert("Nenhum usuário cadastrado. Crie uma conta primeiro.");
-            return;
-        }
-        const user = JSON.parse(storedUser);
-        if (data.cpf === user.cpf && data.senha === user.senha) {
+            if (!loginResponse.ok) {
+                throw new Error("CPF ou Senha incorretos. Tente Novamente.");
+            }
+
+            const pacienteResponse = await fetch(`${API_URL}/paciente`);
+            if (!pacienteResponse.ok) {
+                throw new Error("Login OK, mas falha ao buscar dados do paciente.");
+            }
+            
+            const todosPacientes = await pacienteResponse.json();
+            
+            const usuarioLogado = todosPacientes.find(
+                (paciente: any) => paciente.cpf === data.cpf
+            );
+
+            if (!usuarioLogado) {
+                 throw new Error("Autenticado, mas não foi possível encontrar os dados do usuário.");
+            }
+
+            localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
+            
             alert("Login efetuado com sucesso!");
             navigate('/home'); 
-        } else {
+
+        } catch (error) {
+            console.error("Erro no login:", error);
             
-            alert("CPF ou Senha incorretos. Tente Novamente.");
+            let errorMessage = "Erro desconhecido. Tente novamente.";
+            if (error instanceof Error) {
+                errorMessage = error.message; 
+            }
+            
+            alert(errorMessage);
         }
     };
 
