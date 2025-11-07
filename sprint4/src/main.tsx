@@ -38,7 +38,8 @@ const router = createBrowserRouter([
     {path:"/Sobre", element:<Sobre/>},
     {path:"/MeusDados", element:<MeusDados/>},
     {path:"/Atestado", element:<Atestado/>},
-    {path:"/PlanoSaude", element:<Planosaude/>}  
+    {path:"/PlanoSaude", element:<Planosaude/>},  
+    {path:"/Login", element:<Login/>}
     ]
   }
 ])
