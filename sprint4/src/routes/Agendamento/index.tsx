@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import type { AgendamentoForm, Consulta } from '../../types/agendamento';
 import fotoCalendario from '../../assets/img/calendar.png';
 import fotoRelogio from '../../assets/img/relogio.png';
@@ -32,8 +31,6 @@ export default function AgendamentoForm() {
             medico: { especialidade: '' }
         },
     });
-
-    const navigate = useNavigate();
 
     const usuarioJson = localStorage.getItem('usuarioLogado'); 
     let nomeUsuario = "Paciente";

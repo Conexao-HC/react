@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'; 
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import type { Lembrete, LembreteForm } from '../../types/lembretes';
 import fotoLupa from '../../assets/img/lupa.png';
 import fotoMensagem from '../../assets/img/balao-de-fala-com-linhas-de-texto.png';
@@ -24,7 +23,6 @@ export default function Lembretes() {
         reset, 
     } = useForm<LembreteForm>();
 
-    const navigate = useNavigate();
     const usuarioJson = localStorage.getItem('usuarioLogado');
     let nomeUsuario = "Usuário"; 
 

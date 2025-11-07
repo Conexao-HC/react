@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import type { Reagendamento, ReagendamentoForm } from '../../types/reagendamento'; 
 import SectionHeader from '../../components/SecaoHeader/SecaoHeader';
 import fotoLupa from '../../assets/img/lupa.png';
@@ -22,7 +21,6 @@ export default function Reagendamento() {
         reset 
     } = useForm<ReagendamentoForm>(); 
 
-    const navigate = useNavigate();
 
     const usuarioJson = localStorage.getItem('usuarioLogado'); 
     let nomeUsuario = "Paciente";
