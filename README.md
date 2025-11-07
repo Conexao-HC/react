@@ -21,7 +21,7 @@ A proposta busca diminuir a quantidade de faltas e tornar o processo mais simple
 ## Estrutura de pastas do projeto
 ```
 README.md
-sprint3/
+sprint4/
 ├── src/               
 │   ├── assets/        
 │   ├── components/    
@@ -44,6 +44,7 @@ sprint3/
 
 ## Links
 ```
+Link do site: https://conxexao-hc.vercel.app/
 Link do repositório: https://github.com/Conexao-HC/react
 Link do vídeo do youtube: https://www.youtube.com/watch?v=m5Vy5PgjFMw
 ```
