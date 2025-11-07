@@ -16,6 +16,8 @@ import EsqueciSenha from './routes/EsqueciSenha/index.tsx'
 import Lembretes from './routes/Lembretes/index.tsx'
 import Sobre from './routes/Sobre/index.tsx'
 import MeusDados from './routes/MeusDados/index.tsx'
+import Atestado from './routes/Atestado/index.tsx'
+import Planosaude from './routes/PlanoSaude/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,9 @@ const router = createBrowserRouter([
     {path:"/EsqueciSenha", element:<EsqueciSenha/>},
     {path:"/Lembretes", element:<Lembretes/>},
     {path:"/Sobre", element:<Sobre/>},
-    {path:"/MeusDados", element:<MeusDados/>}
-    
+    {path:"/MeusDados", element:<MeusDados/>},
+    {path:"/Atestado", element:<Atestado/>},
+    {path:"/PlanoSaude", element:<Planosaude/>}  
     ]
   }
 ])
