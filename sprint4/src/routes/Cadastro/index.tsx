@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate, Link } from 'react-router-dom';
-import type { CadastroForm } from '../../types/cadastro';
+import type { CadastroForm } from '../../types/cadastro'; 
 
+const API_URL = "https://sprint4-quarkus.onrender.com"; 
 
 export default function Cadastro() {
     
@@ -10,29 +11,41 @@ export default function Cadastro() {
         handleSubmit, 
         formState: { errors },
         watch
-    } = useForm<CadastroForm>();
+    } = useForm<CadastroForm>(); 
 
     const navigate = useNavigate();
     const senhaAssistida = watch("senha", "");
 
-    const onSubmit = (data: CadastroForm) => {
+    const onSubmit = async (data: CadastroForm) => {
         
-        const loginData = {
-            cpf: data.cpf,
-            senha: data.senha,
-            nome: data.nome,
-            email: data.email,
-            telefone: data.telefone,
-            nascimento: data.dataNascimento 
-        };
-        
+        const { confirmarSenha, ...pacienteData } = data;
+
         try {
-            localStorage.setItem('usuarioCadastrado', JSON.stringify(loginData)); 
+            const response = await fetch(`${API_URL}/paciente`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(pacienteData), 
+            });
+
+            if (!response.ok) {
+                const errorData = await response.text(); 
+                throw new Error(errorData || 'Erro ao cadastrar paciente');
+            }
+
+            alert(`Cadastro de ${pacienteData.nome} realizado com sucesso!`);
+            navigate('/login'); 
+
+        } catch (error) {
+            console.error("Erro no cadastro:", error);
             
-            alert(`Cadastro de ${data.nome} realizado com sucesso! Redirecionando para o Login.`);
-            navigate('/');
-        } catch {
-            alert("Erro ao salvar dados. Tente novamente.");
+            let errorMessage = "Erro desconhecido. Tente novamente.";
+            if (error instanceof Error) {
+                errorMessage = error.message; 
+            }
+            
+            alert(`Erro ao salvar dados: ${errorMessage}`);
         }
     };
 
@@ -127,6 +140,72 @@ export default function Cadastro() {
                             {...register("cpf", { required: "O CPF é obrigatório.", minLength: { value: 11, message: "O CPF deve ter 11 dígitos." } })}
                         />
                         {errors.cpf && <small className="text-red-500 block mt-1">{errors.cpf.message}</small>}
+                    </div>
+
+                    <div className="bg-gray-200 rounded-lg p-3 shadow-inner mt-6">
+                        <h2 className="text-xl font-bold text-black mb-4">Endereço</h2>
+                        <div className="space-y-4">
+                            
+                            <div>
+                                <label htmlFor="logradouro" className="block text-sm font-bold text-gray-700">Logradouro</label>
+                                <input type="text" id="logradouro" placeholder="Rua, Avenida..."
+                                    className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg ${errors.endereco?.logradouro ? 'border-red-500' : 'border-gray-700'}`}
+                                    {...register("endereco.logradouro", { required: "O logradouro é obrigatório." })}
+                                />
+                                {errors.endereco?.logradouro && <small className="text-red-500 block mt-1">{errors.endereco.logradouro.message}</small>}
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label htmlFor="numero" className="block text-sm font-bold text-gray-700">Número</label>
+                                    <input type="number" id="numero" placeholder="Nº"
+                                        className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg ${errors.endereco?.numero ? 'border-red-500' : 'border-gray-700'}`}
+                                        {...register("endereco.numero", { 
+                                            required: "O número é obrigatório.",
+                                            valueAsNumber: true 
+                                        })}
+                                    />
+                                    {errors.endereco?.numero && <small className="text-red-500 block mt-1">{errors.endereco.numero.message}</small>}
+                                </div>
+                                <div>
+                                    <label htmlFor="bairro" className="block text-sm font-bold text-gray-700">Bairro</label>
+                                    <input type="text" id="bairro" placeholder="Bairro"
+                                        className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg ${errors.endereco?.bairro ? 'border-red-500' : 'border-gray-700'}`}
+                                        {...register("endereco.bairro", { required: "O bairro é obrigatório." })}
+                                    />
+                                    {errors.endereco?.bairro && <small className="text-red-500 block mt-1">{errors.endereco.bairro.message}</small>}
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label htmlFor="cidade" className="block text-sm font-bold text-gray-700">Cidade</label>
+                                    <input type="text" id="cidade" placeholder="Cidade"
+                                        className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg ${errors.endereco?.cidade ? 'border-red-500' : 'border-gray-700'}`}
+                                        {...register("endereco.cidade", { required: "A cidade é obrigatória." })}
+                                    />
+                                    {errors.endereco?.cidade && <small className="text-red-500 block mt-1">{errors.endereco.cidade.message}</small>}
+                                </div>
+                                <div>
+                                    <label htmlFor="estado" className="block text-sm font-bold text-gray-700">Estado</label>
+                                    <input type="text" id="estado" placeholder="Estado"
+                                        className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg ${errors.endereco?.estado ? 'border-red-500' : 'border-gray-700'}`}
+                                        {...register("endereco.estado", { required: "O estado é obrigatório." })}
+                                    />
+                                    {errors.endereco?.estado && <small className="text-red-500 block mt-1">{errors.endereco.estado.message}</small>}
+                                </div>
+                            </div>
+
+                            <div>
+                                <label htmlFor="cep" className="block text-sm font-bold text-gray-700">CEP</label>
+                                <input type="text" id="cep" placeholder="00000-000"
+                                    className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg ${errors.endereco?.cep ? 'border-red-500' : 'border-gray-700'}`}
+                                    {...register("endereco.cep", { required: "O CEP é obrigatório." })}
+                                />
+                                {errors.endereco?.cep && <small className="text-red-500 block mt-1">{errors.endereco.cep.message}</small>}
+                            </div>
+
+                        </div>
                     </div>
 
                     <button
