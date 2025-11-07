@@ -17,7 +17,7 @@ export const integrantesData: Integrantes[] = [
         rm: "562152",
         turma: "1TDSPF",
         fotoPerfil: "fuka.png",
-        linkedinLink: "https://www.linkedin.com/in/lucas-ryuji-fukuda-020876353/",
+        linkedinLink: "https://www.linkedin.com/in/lucas-fukuda-a31847379/",
         githubLink: "https://github.com/LucasFukuda2408",
     },
 ];
