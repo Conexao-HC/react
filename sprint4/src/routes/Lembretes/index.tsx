@@ -25,7 +25,7 @@ export default function Lembretes() {
     } = useForm<LembreteForm>();
 
     const navigate = useNavigate();
-    const usuarioJson = localStorage.getItem('usuarioCadastrado');
+    const usuarioJson = localStorage.getItem('usuarioLogado');
     let nomeUsuario = "Usuário"; 
 
     if (usuarioJson) {
