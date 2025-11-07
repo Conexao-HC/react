@@ -13,10 +13,8 @@ const COR_FUNDO = '#acf0ff';
 const COR_BORDA = '#169da6'; 
 const API_URL = "https://sprint4-quarkus.onrender.com";
 
-// Precisamos do tipo Paciente completo (com ID) para pegar o 'idPaciente'
 type Paciente = CadastroForm & {
     idPaciente: number;
-    // senha e confirmarSenha não vêm do localStorage
 };
 
 export default function MeusDados() {
@@ -30,7 +28,6 @@ export default function MeusDados() {
 
     const navigate = useNavigate();
     
-    // Armazena o ID do paciente para o PUT e DELETE
     const [pacienteId, setPacienteId] = useState<number | null>(null);
 
     useEffect(() => {
@@ -40,24 +37,21 @@ export default function MeusDados() {
             try {
                 const usuario: Paciente = JSON.parse(usuarioJson);
                 
-                // Salva o ID do paciente
                 setPacienteId(usuario.idPaciente); 
                 
-                // Carrega todos os dados no formulário, incluindo o endereço
                 reset(usuario); 
 
             } catch (e) {
                 console.error("Erro ao carregar dados do perfil:", e);
                 alert("Não foi possível carregar seus dados. Por favor, faça login novamente.");
-                navigate('/login'); // Envia para o login se os dados estiverem corrompidos
+                navigate('/login'); 
             }
         } else {
             alert("Você não está logado.");
-            navigate('/login'); // Envia para o login se não houver usuário
+            navigate('/login'); 
         }
     }, [reset, navigate]); 
 
-    // MODIFICADO: Função onSubmit agora faz PUT
     const onSubmit = async (data: CadastroForm) => {
         
         if (!pacienteId) {
@@ -65,15 +59,11 @@ export default function MeusDados() {
             return;
         }
 
-        // Remove campos que a API não espera no PUT (como confirmarSenha)
         const { confirmarSenha, ...pacienteData } = data;
         
-        // A API espera o ID do paciente no corpo do JSON? 
-        // Vamos assumir que sim, mas também enviamos na URL.
         const payload = {
             ...pacienteData,
             idPaciente: pacienteId,
-            // Garante que o número do endereço seja um número
             endereco: {
                 ...pacienteData.endereco,
                 numero: Number(pacienteData.endereco.numero)
@@ -92,11 +82,10 @@ export default function MeusDados() {
                 throw new Error(errorText || "Falha ao atualizar dados.");
             }
 
-            // Atualiza o localStorage com os novos dados
             localStorage.setItem('usuarioLogado', JSON.stringify(payload));
 
             alert(`Perfil atualizado com sucesso para ${payload.nome}!`);
-            navigate('/home'); // Volta para a home
+            navigate('/home'); 
 
         } catch (error) {
             console.error("Erro ao atualizar:", error);
@@ -105,7 +94,6 @@ export default function MeusDados() {
         }
     };
 
-    // ADICIONADO: Função DELETE
     const handleDeleteAccount = async () => {
         if (!pacienteId) {
             alert("Erro: ID do paciente não encontrado.");
@@ -126,8 +114,8 @@ export default function MeusDados() {
             }
 
             alert("Conta excluída com sucesso.");
-            localStorage.removeItem('usuarioLogado'); // Limpa o localStorage
-            navigate('/login'); // Envia para o login
+            localStorage.removeItem('usuarioLogado'); 
+            navigate('/login'); 
 
         } catch (error) {
             console.error("Erro ao excluir:", error);
@@ -156,7 +144,6 @@ export default function MeusDados() {
                   style={{ backgroundColor: COR_FUNDO, borderColor: COR_BORDA }}
             >
                 
-                {/* ... Campos Nome, Email ... */}
                 <div className="grid grid-cols-1 gap-4">
                     <div>
                         <label htmlFor="nome" className="block text-sm font-bold text-gray-700 flex items-center">
@@ -180,7 +167,6 @@ export default function MeusDados() {
                     </div>
                 </div>
                 
-                {/* ... Campo Senha ... */}
                 <div className="pt-2 border-t border-gray-300">
                     <label className="block text-sm font-bold text-gray-700 flex items-center">
                        <img src={fotoCadeado} alt="Cadeado" className="w-4 h-4 mr-2" />Senha do Paciente
@@ -190,7 +176,6 @@ export default function MeusDados() {
                     </Link>
                 </div>
                 
-                {/* ... Campos DataNascimento, Telefone, CPF ... */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="dataNascimento" className="block text-sm font-bold text-gray-700 flex items-center">
@@ -221,11 +206,10 @@ export default function MeusDados() {
                     <input type="text" id="cpf"
                         className={`w-full p-3 border rounded-lg shadow-sm font-semibold text-lg bg-gray-200 ${errors.cpf ? 'border-red-500' : 'border-gray-700'}`}
                         {...register("cpf")}
-                        readOnly // CPF não deve ser editável
+                        readOnly 
                     />
                 </div>
 
-                {/* ADICIONADO: Seção de Endereço */}
                 <div className="bg-gray-200 rounded-lg p-3 shadow-inner mt-6">
                     <h2 className="text-xl font-bold text-black mb-4">Endereço</h2>
                     <div className="space-y-4">
@@ -299,7 +283,6 @@ export default function MeusDados() {
                 </button>
             </form>
             
-            {/* ADICIONADO: Botão de Excluir Conta */}
             <div className="w-full max-w-md mx-auto px-4 mt-8">
                  <button
                     type="button"
