@@ -1,4 +1,3 @@
-
 export type EnderecoForm = {
   logradouro: string;
   numero: number;
@@ -14,7 +13,7 @@ export type CadastroForm = {
   dataNascimento: string;
   telefone: string;
   cpf: string;
-  senha: string;
-  confirmarSenha: string; 
+  senha?: string; 
+  confirmarSenha?: string; 
   endereco: EnderecoForm; 
 };
