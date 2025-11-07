@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import type { PlanoSaude, PlanoSaudeForm } from '../../types/planosaude'; 
 
-// Constantes da API
 const API_URL = "https://sprint4-quarkus.onrender.com";
 const COR_FUNDO_BLOCO = '#d9d9d9';
 const COR_TAG = '#acf0ff';
-
 
 export default function Planosaude(){
     
@@ -21,7 +19,6 @@ export default function Planosaude(){
         reset 
     } = useForm<PlanoSaudeForm>(); 
 
-    // Lógica para pegar o nome do usuário (padrão das suas páginas)
     const usuarioJson = localStorage.getItem('usuarioLogado'); 
     let nomeUsuario = "Paciente";
     if (usuarioJson) {
@@ -33,7 +30,6 @@ export default function Planosaude(){
         }
     }
     
-    // Função para buscar (GET) /planosaude
     const fetchPlanosSaude = async () => {
         setIsLoading(true);
         try {
@@ -52,18 +48,15 @@ export default function Planosaude(){
         fetchPlanosSaude();
     }, []); 
 
-    // Função onSubmit (POST e PUT)
     const onSubmit = async (data: PlanoSaudeForm) => {
         
         const dataPayload = {
             ...data,
-            numeroCarteirinha: Number(data.numeroCarteirinha) // Garante que é número
+            numeroCarteirinha: Number(data.numeroCarteirinha) 
         }; 
 
         if (isEditing) {
-            // LÓGICA PUT
             try {
-                // O endpoint PUT usa o numeroCarteirinha na URL
                 const response = await fetch(`${API_URL}/planosaude/${isEditing.numeroCarteirinha}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
@@ -71,14 +64,13 @@ export default function Planosaude(){
                 });
                 if (!response.ok) throw new Error("Erro ao atualizar plano");
                 alert(`Plano atualizado com sucesso!`);
-                await fetchPlanosSaude(); // Recarrega a lista
+                await fetchPlanosSaude(); 
             } catch (error) {
                 console.error(error);
                 let msg = (error instanceof Error) ? error.message : "Tente novamente.";
                 alert(`Falha ao atualizar: ${msg}`);
             }
         } else {
-            // LÓGICA POST
             try {
                 const response = await fetch(`${API_URL}/planosaude`, {
                     method: 'POST', 
@@ -87,7 +79,7 @@ export default function Planosaude(){
                 });
                 if (!response.ok) throw new Error("Erro ao criar plano");
                 alert(`Plano criado com sucesso!`);
-                await fetchPlanosSaude(); // Recarrega a lista
+                await fetchPlanosSaude(); 
             } catch (error) {
                 console.error(error);
                 let msg = (error instanceof Error) ? error.message : "Tente novamente.";
@@ -98,7 +90,6 @@ export default function Planosaude(){
         setIsEditing(null);
     };
 
-    // Função (DELETE)
     const handleDelete = async (numeroCarteirinha: number) => {
         if (!window.confirm("Tem certeza que deseja excluir este plano de saúde?")) return;
         try {
@@ -113,7 +104,6 @@ export default function Planosaude(){
         }
     };
 
-    // Funções para modo de edição
     const handleSelectEdit = (plano: PlanoSaude) => {
         setIsEditing(plano);
         reset(plano); 
@@ -127,7 +117,6 @@ export default function Planosaude(){
     return (
         <div className="flex flex-col items-center w-full min-h-screen bg-gray-50 py-10">
             
-            {/* Cabeçalho */}
             <div 
                 className="w-full max-w-lg p-4 rounded-lg shadow-xl mb-8"
                 style={{ backgroundColor: COR_FUNDO_BLOCO }}
@@ -146,7 +135,6 @@ export default function Planosaude(){
                 </p>
             </div>
             
-            {/* Formulário */}
             <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg space-y-6 bg-white p-6 rounded-lg shadow-xl">
                 
                 <h3 className="text-xl font-semibold">
@@ -177,7 +165,7 @@ export default function Planosaude(){
                                 required: "O número é obrigatório.",
                                 valueAsNumber: true 
                             })}
-                            readOnly={!!isEditing} // Trava o campo (chave primária) na edição
+                            readOnly={!!isEditing} 
                         />
                         {errors.numeroCarteirinha && <small className="text-red-500 block mt-1">{errors.numeroCarteirinha.message}</small>}
                     </div>
@@ -213,7 +201,6 @@ export default function Planosaude(){
                 </div>
             </form>
 
-            {/* Lista de Planos */}
             <div className="w-full max-w-lg space-y-4 bg-white p-6 rounded-lg shadow-xl mt-10">
                 <h3 className="text-2xl font-semibold text-black">Seus Planos de Saúde</h3>
                 {isLoading ? (
