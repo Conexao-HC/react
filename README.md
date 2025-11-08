@@ -46,5 +46,5 @@ sprint4/
 ```
 Link do site: https://conxexao-hc.vercel.app/
 Link do repositório: https://github.com/Conexao-HC/react
-Link do vídeo do youtube: https://www.youtube.com/watch?v=m5Vy5PgjFMw
+Link do vídeo do youtube: https://youtu.be/CR-LH3YG6W4
 ```
